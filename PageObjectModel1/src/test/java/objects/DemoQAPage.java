@@ -18,7 +18,7 @@ public class DemoQAPage {
 	// Store Application']"));
 
 	By Redirect_login = By.xpath("//*[@id=\"app\"]/div/div/div[2]/div/div[6]/div/div[1]");
-	By LoginBtn = By.id("login");
+	By Book_Lgn = By.id("login");
 	By uName = By.id("userName");
 	By pswd = By.id("password");
 	By loginBtn = By.id("login");
@@ -29,7 +29,7 @@ public class DemoQAPage {
 
 		driver.findElement(Redirect_login).click();
 		Thread.sleep(2000);
-		driver.findElement(LoginBtn).click();
+		driver.findElement(Book_Lgn).click();
 	}
 
 	public void EnterUSerName() {
