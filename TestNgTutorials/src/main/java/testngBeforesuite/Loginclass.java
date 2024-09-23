@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -21,18 +22,21 @@ public class Loginclass {
 
 	@Parameters({ "username", "password" })
 	@Test()
-	public void checkLogin(String username, String password) {
+	public void checkLogin(@Optional("defaultUser")String username,@Optional("defaultPass") String password) throws InterruptedException {
 
-		driver.findElement(By.xpath("//*[@id=\'j_username\']")).sendKeys(username);
-		driver.findElement(By.xpath("//*[@id=\'j_password\']")).sendKeys(password);
-		driver.findElement(By.xpath("//*[@name=\'Submit\']")).click();
-		driver.findElement(By.xpath("//*[@id=\'page-header\']/div[3]/a[2]/span")).click();
+		driver.findElement(By.id("j_username")).sendKeys(username);
+		driver.findElement(By.id("j_password")).sendKeys(password);
+		driver.findElement(By.xpath("//*[@id=\'main-panel\']/div/form/button")).click();
+		//driver.findElement(By.xpath("//*[@id=\'page-header\']/div[3]/a[2]/span")).click();
+		
 		System.out.println("The login process on Jenkins is completed");
+		
 	}
 	
 	@AfterSuite
-	public void Closingbrowseroperations() {
+	public void Closingbrowseroperations() throws InterruptedException {
 		
+		Thread.sleep(3000);
 		driver.quit();
 		System.out.println("Browser operation is closed successfully");		
 	}

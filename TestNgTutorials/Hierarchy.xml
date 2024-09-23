@@ -5,7 +5,7 @@
 	
 	<test thread-count="5" name="Tests">
 		<classes>
-			<class name="testngBeforesuite.Hierarchy.xml" />
+			<class name="testngBeforesuite.Leveloftestng" />
 					</classes>
 	</test> <!-- Test -->
 </suite> 
