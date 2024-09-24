@@ -16,7 +16,9 @@ public class Titleverifyorder {
 	public void launchBrowser() {
 		System.out.println("launching Chrome browser");
 		driver = new ChromeDriver();
+		driver.manage().window().maximize();
 		driver.get(baseUrl);
+		
 	}
 
 	@Test
